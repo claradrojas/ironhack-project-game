@@ -1,0 +1,27 @@
+.game{
+    width: 1000px;
+    height: 400px;
+    border: 2px solid black;
+    margin: auto;
+}
+
+#potato {
+    width: 60px;
+    height: 60px; 
+    background-image: url(./imgs/cartoon-potato.jpeg);
+    background-size: 60px 60px;
+    position: relative;
+    top: 340px;
+    margin-bottom: 2px;
+    margin-left: 3px;
+}
+
+#obstacle {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    background-size: 40px 40px;
+    position: relative;
+    top: 290px;
+    left: 950px;
+}
