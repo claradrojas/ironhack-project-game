@@ -4,6 +4,7 @@ let obstacles = []
 
 const board = document.getElementById("game-board")
 
+
 window.addEventListener('load', (event) => {
     startGame();
 })
@@ -13,34 +14,37 @@ function startGame() {
         generateObstacles();
         updateObstacles();
         checkCollision();
-       
+
         frames++;
-    }, 200);
+    }, 150);
 }
 
 class Potato {
-    constructor(position) {
-        this.position = 0;// potato moves in the Y vertical range only
-        // we dont give a fixed position we move it with arrow
+    constructor() {
+        this.positionY = 200;
 
         this.element = document.createElement("div")
         this.element.classList.add("potato")
         this.element.style.position = 'absolute'
-        this.element.style.top = this.position;
+        this.element.style.top = this.positionY + "px";
         board.appendChild(this.element)
 
     }
 
-    moveUp() {
-        if (this.position >= 0) // check later
-            this.position += 1 //(this.position -= 1)
+    moveDown() {
+        console.log('down')
+        if (this.positionY < 200) {
+            this.positionY += 100
+            this.element.style.top = this.positionY + "px";
+        }
     }
 
-    moveDown() {
-        if (this.position > 0) {
-            this.position -= 1  // (this.position += 1)
+    moveUp() {
+        console.log('up')
+        if (this.positionY > 0) {
+            this.positionY -= 100;
+            // todo
         }
-
     }
 }
 
@@ -66,12 +70,18 @@ class Obstacle {
 
 }
 
+
+const player = new Potato();
+
+
 // updateObstacles(): updates the position for all elements in the array of obstacles 
 function updateObstacles() {
-    obstacles.forEach(obstacle => {
+    obstacles.forEach((obstacle, index) => {
         obstacle.move();
-
-
+        if (obstacle.positionX < -25) {
+            obstacles.splice(index, 1);
+            board.removeChild(obstacle.element);
+        }
     })
 }
 
@@ -79,15 +89,12 @@ function generateObstacles() {
     let obstaclesPosition = [0, 100, 200]
 
     let y = obstaclesPosition[Math.floor(Math.random() * obstaclesPosition.length)]
-   
-    /* let minGap = 50
-     let maxGap = 200
-     let gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap)*/
-     if (frames % 20 === 0) {
+
+    if (frames % 20 === 0) {
         obstacle = new Obstacle(1000, y)
-    obstacles.push(obstacle)
-     }
-    
+        obstacles.push(obstacle)
+    }
+
 
 }
 
@@ -103,60 +110,39 @@ function checkCollision() {
              return true // 'collision';
          }
      });
+ 
+}
+
+function checkCollision() {
+    // obstacles array -- check P & Obs position X & Y, check widht & height and compare
+    /* obstacles.forEach(obstacle => {
+        if(obstacle.positionX < 100 ){
+            // check Y position of Potato & obstacle
+                // if colision --> gameOver()
+        }
+     });
  */
 }
 
-
 function gameOver() {
-    /* if (checkCollision()) {
-         return 'Game Over'
-     } */
+    console.log("game over")
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-window.addEventListener('keyup', (e) => {
+document.addEventListener('keyup', e => { 
     switch (e.key) {
-        case 'arrowUp':
-            potato.style.top = parseInt(potato.style.top) - moveBy + '5px';
+        case "ArrowUp":
+            player.moveUp()
             break;
-        case 'arrowDown':
-            potato.style.bottom = parseInt(potato.style.bottom) + moveBy + '-5px'
+        case "ArrowDown":
+            player.moveDown();
             break;
     }
+
 })
 
-*/
+
 
 
 
