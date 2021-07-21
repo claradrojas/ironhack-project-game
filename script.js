@@ -13,9 +13,9 @@ function startGame() {
         generateObstacles();
         updateObstacles();
         checkCollision();
-
+       
         frames++;
-    }, 2000);
+    }, 200);
 }
 
 class Potato {
@@ -70,39 +70,40 @@ class Obstacle {
 function updateObstacles() {
     obstacles.forEach(obstacle => {
         obstacle.move();
-        
+
 
     })
 }
 
 function generateObstacles() {
     let obstaclesPosition = [0, 100, 200]
-    
+
     let y = obstaclesPosition[Math.floor(Math.random() * obstaclesPosition.length)]
-
-   /* let minGap = 50
-    let maxGap = 200
-    let gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap)*/
-
-    obstacle = new Obstacle(1000, y) 
+   
+    /* let minGap = 50
+     let maxGap = 200
+     let gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap)*/
+     if (frames % 20 === 0) {
+        obstacle = new Obstacle(1000, y)
     obstacles.push(obstacle)
+     }
     
-    
+
 }
 
 function checkCollision() {
     // obstacles array -- check P & Obs position X & Y, check widht & height and compare
-   /* obstacles.forEach(obstacle => {
-        if (
-            potato.position < obstacle.positionX + obstacle.width &&
-            potato.position + potato.width > obstacle.positionX &&
-            potato.position < obstacle.positionY + obstacle.height &&
-            potato.height + potato.position > obstacle.positionY
-        ) {
-            return true // 'collision';
-        }
-    });
-*/
+    /* obstacles.forEach(obstacle => {
+         if (
+             potato.position < obstacle.positionX + obstacle.width &&
+             potato.position + potato.width > obstacle.positionX &&
+             potato.position < obstacle.positionY + obstacle.height &&
+             potato.height + potato.position > obstacle.positionY
+         ) {
+             return true // 'collision';
+         }
+     });
+ */
 }
 
 
