@@ -98,10 +98,8 @@ function generateObstacles() {
 function checkCollision() {
     obstacles.forEach(obstacle => {
         if (obstacle.positionX < 100 && player.positionY === obstacle.positionY) {
-            console.log('game over')
+            return gameOver()
         }
-
-        //return gameOver()
     },
 
     )
@@ -138,7 +136,7 @@ function checkCollision() {
 
 
 function gameOver() {
-    console.log("game over")
+    window.confirm("GAME OVER")
 }
 
 
