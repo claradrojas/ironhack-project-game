@@ -31,21 +31,20 @@ class Potato {
 
     }
 
+    moveUp() {
+        if (this.positionY > 0 ) {
+            this.positionY -= 100;
+            this.element.style.top = this.positionY + "px";  
+        }
+    }
     moveDown() {
-        console.log('down')
-        if (this.positionY < 200) {
+        if (this.positionY < 200 ) {
             this.positionY += 100
-            this.element.style.top = this.positionY + "px";
+            this.element.style.top = this.positionY + "px";  
         }
     }
 
-    moveUp() {
-        console.log('up')
-        if (this.positionY > 0) {
-            this.positionY -= 100;
-            // todo
-        }
-    }
+    
 }
 
 
@@ -94,8 +93,6 @@ function generateObstacles() {
         obstacle = new Obstacle(1000, y)
         obstacles.push(obstacle)
     }
-
-
 }
 
 function checkCollision() {
@@ -130,13 +127,13 @@ function gameOver() {
 
 
 
-document.addEventListener('keyup', e => { 
+document.addEventListener('keydown', (e) => {
     switch (e.key) {
-        case "ArrowUp":
+        case 'ArrowUp':
             player.moveUp()
             break;
-        case "ArrowDown":
-            player.moveDown();
+        case 'ArrowDown':
+            player.moveDown()
             break;
     }
 
