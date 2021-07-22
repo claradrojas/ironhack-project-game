@@ -16,7 +16,7 @@ function startGame() {
         checkCollision();
 
         frames++;
-    }, 150);
+    }, 100);
 }
 
 class Potato {
@@ -32,19 +32,19 @@ class Potato {
     }
 
     moveUp() {
-        if (this.positionY > 0 ) {
+        if (this.positionY > 0) {
             this.positionY -= 100;
-            this.element.style.top = this.positionY + "px";  
+            this.element.style.top = this.positionY + "px";
         }
     }
     moveDown() {
-        if (this.positionY < 200 ) {
+        if (this.positionY < 200) {
             this.positionY += 100
-            this.element.style.top = this.positionY + "px";  
+            this.element.style.top = this.positionY + "px";
         }
     }
 
-    
+
 }
 
 
@@ -96,30 +96,46 @@ function generateObstacles() {
 }
 
 function checkCollision() {
-    // obstacles array -- check P & Obs position X & Y, check widht & height and compare
-    /* obstacles.forEach(obstacle => {
-         if (
-             potato.position < obstacle.positionX + obstacle.width &&
-             potato.position + potato.width > obstacle.positionX &&
-             potato.position < obstacle.positionY + obstacle.height &&
-             potato.height + potato.position > obstacle.positionY
-         ) {
-             return true // 'collision';
-         }
-     });
+    obstacles.forEach(obstacle => {
+        if (obstacle.positionX < 100 && player.positionY === obstacle.positionY) {
+            console.log('game over')
+        }
+
+        //return gameOver()
+    },
+
+    )
+}
+
+
+/* obstacles.forEach(obstacle => {
+     if (
+
+        player.positionY: if < than obstacle.positionY + obstacle height
+        obstacle.positionX: if  <100
+        obstacle.positionY: < player.positionY + player.height
+        player.width: 
+        player.height
+        obstacle.width
+        obstacle.height
+
+     ) {
+         return true // 'collision';
+     }
+ });
  
 }
 
 function checkCollision() {
-    // obstacles array -- check P & Obs position X & Y, check widht & height and compare
-    /* obstacles.forEach(obstacle => {
-        if(obstacle.positionX < 100 ){
-            // check Y position of Potato & obstacle
-                // if colision --> gameOver()
-        }
-     });
- */
-}
+// obstacles array -- check P & Obs position X & Y, check width & height and compare
+/* obstacles.forEach(obstacle => {
+    if(obstacle.positionX < 100 ){
+        // check Y position of Potato & obstacle
+            // if colision --> gameOver()
+    }
+ });
+*/
+
 
 function gameOver() {
     console.log("game over")

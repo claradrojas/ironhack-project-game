@@ -18,10 +18,11 @@
 }
 
 .obstacle {
-    width: 30px;
+    width: 130px;
     height: 100px;
-    background-color:rgb(43, 3, 3);
-    background-size: 30px 30px;
+    background-image: url(./imgs/fire2icon.png);
+    /* background-color:rgb(43, 3, 3); */
+    background-size: 130px 100px;
     /*position: absolute;
     top: 290px;
     left: 950px; */
