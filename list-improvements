@@ -1,0 +1,26 @@
+
+
+- Mostrar game over
+  -- opción 1: mostrar un alert
+  -- opción 2: cuando game over, rediccionar a gameOver.html 
+  -- opción 3: mostrar un confirm() y, si el usuario le da a aceptar, iniciar un nuevo juego
+     https://www.w3schools.com/js/tryit.asp?filename=tryjs_confirm
+
+
+- Obstaculos con imagen
+
+- Obstáculos con imágenes diferentes
+
+- Que cuando la patata muere, cambiarle la imagen
+
+- Incrementar dificultad con el tiempo
+
+
+Wishlist:
+
+- Hacer que los objetos se muevan de forma suave
+  -- opcion1: jugar con los parametros de js (el tiempo de refresco + frecuencia de creacion de obstaculos --> % )
+  -- opcion2: css transitions
+
+
+  

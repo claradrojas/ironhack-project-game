@@ -1,9 +1,7 @@
 let frames = 0;
 let obstacles = []
 
-
 const board = document.getElementById("game-board")
-
 
 window.addEventListener('load', (event) => {
     startGame();
@@ -43,10 +41,7 @@ class Potato {
             this.element.style.top = this.positionY + "px";
         }
     }
-
-
 }
-
 
 class Obstacle {
     constructor(positionX, positionY) {
@@ -69,9 +64,7 @@ class Obstacle {
 
 }
 
-
 const player = new Potato();
-
 
 // updateObstacles(): updates the position for all elements in the array of obstacles 
 function updateObstacles() {
@@ -106,37 +99,9 @@ function checkCollision() {
 }
 
 
-/* obstacles.forEach(obstacle => {
-     if (
-
-        player.positionY: if < than obstacle.positionY + obstacle height
-        obstacle.positionX: if  <100
-        obstacle.positionY: < player.positionY + player.height
-        player.width: 
-        player.height
-        obstacle.width
-        obstacle.height
-
-     ) {
-         return true // 'collision';
-     }
- });
- 
-}
-
-function checkCollision() {
-// obstacles array -- check P & Obs position X & Y, check width & height and compare
-/* obstacles.forEach(obstacle => {
-    if(obstacle.positionX < 100 ){
-        // check Y position of Potato & obstacle
-            // if colision --> gameOver()
-    }
- });
-*/
-
-
 function gameOver() {
-    window.confirm("GAME OVER")
+    window.location.href = "./gave-over.html"
+    //window.confirm("GAME OVER")
 }
 
 
