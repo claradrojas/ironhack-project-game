@@ -14,7 +14,7 @@ function startGame() {
         checkCollision();
 
         frames++;
-    }, 100);
+    }, 60);
 }
 
 class Potato {
